@@ -1,20 +1,22 @@
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 
-
+@Getter
+@Setter
 public class Fio <T extends Model> implements Action {
 
-    private List<T> allUsers;
+    private final List<T> allUsers;
     Scanner a = new Scanner(System.in);
 
     public Fio() {
         this.allUsers = new ArrayList<>();
     }
-    public List<T> getAllUsers() {
-        return allUsers;
-    }
+
 
     public void printAllUsers(){
         for (int i = 0; i<allUsers.size(); i++)
@@ -93,7 +95,7 @@ public class Fio <T extends Model> implements Action {
     @Override
     public void delete(int a) {
         allUsers.remove(a);
-        if(allUsers.size()==0){
+        if(allUsers.isEmpty()){
             System.out.println("\u001B[31m"+"------------СПИСОК ПОЛЬЗОВАТЕЛЕЙ-------------");
             System.out.println("\u001B[0m"+"-----------------СПИСОК ПУСТ-----------------");
             System.out.println("\u001B[31m"+"---------------------------------------------");
@@ -108,7 +110,7 @@ public class Fio <T extends Model> implements Action {
     public void post(Model user) {
         System.out.print("Введите имя ");
         user.firstName = a.nextLine();
-        while(user.firstName.equals("")||user.firstName==null){
+        while(user.firstName.isEmpty()||user.firstName==null){
             System.out.println("Поля Имя обязательно к заполнениею," + "\n" +"Введите имя: ");
             user.firstName = a.nextLine();
         }

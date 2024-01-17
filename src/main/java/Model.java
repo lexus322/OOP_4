@@ -12,14 +12,6 @@ public class Model {
     String lastName;
     ArrayList<Model> allUsers = new ArrayList<>();
 
-    @SneakyThrows
-    public Model(String firstName, String middleName, String lastName) {
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        allUsers.add(Model.this);
-    }
-
     public Model() {
     }
 }
