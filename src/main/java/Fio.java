@@ -110,7 +110,7 @@ public class Fio <T extends Model> implements Action {
     public void post(Model user) {
         System.out.print("Введите имя ");
         user.firstName = a.nextLine();
-        while(user.firstName.isEmpty()||user.firstName==null){
+        while(user.firstName.isEmpty()){
             System.out.println("Поля Имя обязательно к заполнениею," + "\n" +"Введите имя: ");
             user.firstName = a.nextLine();
         }
